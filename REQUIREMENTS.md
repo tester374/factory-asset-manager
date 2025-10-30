@@ -39,7 +39,8 @@ The Factory Asset Manager is a comprehensive digital solution designed to stream
 
 ## User Roles & Permissions
 
-### 1. System Administrator
+### 1. Admin
+
 **Primary Responsibilities:**
 - Complete system configuration and maintenance
 - User account management and role assignments
@@ -52,246 +53,203 @@ The Factory Asset Manager is a comprehensive digital solution designed to stream
 - System configuration changes
 - Data export/import functions
 
-### 2. Operations Manager
+### 2. Shop Incharge
+
 **Primary Responsibilities:**
-- Strategic oversight of asset management operations
-- Resource allocation and budget planning
+- Oversight of shop floor asset management operations
+- Resource allocation and planning
 - Performance monitoring and reporting
-- Cross-departmental coordination
+- Maintenance scheduling and approval
+- Work order review and assignment
 
 **Key Permissions:**
-- Full asset visibility across all departments
-- Advanced reporting and analytics access
-- Budget and cost center management
-- Workflow approval authority
+- Full asset visibility within assigned shop
+- Approve and modify maintenance schedules
+- Generate reports and analytics
+- Assign work orders to operators
+- Budget and cost tracking
 
-### 3. Maintenance Supervisor
+### 3. Operator
+
 **Primary Responsibilities:**
-- Maintenance team coordination and scheduling
-- Work order review and approval
-- Resource planning and inventory management
-- Performance metrics monitoring
+- Daily asset operation and monitoring
+- Report equipment issues and malfunctions
+- Execute assigned maintenance tasks
+- Update asset status and location
+- Basic troubleshooting and repairs
 
 **Key Permissions:**
-- Maintenance schedule management
-- Work order creation and modification
-- Team assignment and task delegation
-- Maintenance history access
+- View assigned assets and equipment
+- Update asset status and readings
+- Create maintenance requests
+- Access work orders assigned to them
+- Record maintenance activities
 
-### 4. Maintenance Technician
-**Primary Responsibilities:**
-- Hands-on maintenance execution
-- Asset condition reporting
-- Work order completion and documentation
-- Parts usage tracking
+## Functional Requirements
 
-**Key Permissions:**
-- Assigned work order access
-- Asset condition updates
-- Time and material logging
-- Mobile application access
+### Asset Management
 
-### 5. Production Operator
-**Primary Responsibilities:**
-- Equipment operation and monitoring
-- Issue identification and reporting
-- Basic asset status updates
-- Safety compliance
+1. **Asset Registration**
+   - Unique asset ID generation
+   - Comprehensive asset profile (make, model, serial number, purchase date, warranty)
+   - Photo/document attachment capability
+   - QR code/barcode generation and printing
 
-**Key Permissions:**
-- Read-only asset information
-- Issue reporting capabilities
-- Basic status updates
-- Safety incident logging
+2. **Asset Tracking**
+   - Real-time location updates
+   - Movement history log
+   - Assignment to departments/operators
+   - Status tracking (active, maintenance, decommissioned)
 
-## Core Workflows
+3. **Asset Search & Filter**
+   - Advanced search by multiple parameters
+   - Filter by category, location, status, department
+   - Sort and export capabilities
+
+### Maintenance Management
+
+1. **Preventive Maintenance**
+   - Schedule-based maintenance plans
+   - Time or usage-based triggers
+   - Automatic work order generation
+   - Maintenance calendar view
+
+2. **Work Orders**
+   - Creation by operators or shop incharge
+   - Assignment to specific operators
+   - Priority levels (urgent, high, medium, low)
+   - Status tracking (pending, in-progress, completed)
+   - Parts and labor tracking
+
+3. **Maintenance History**
+   - Complete maintenance log per asset
+   - Cost tracking and analysis
+   - Downtime recording
+   - Technician notes and observations
+
+### Reporting & Analytics
+
+1. **Asset Reports**
+   - Asset inventory summary
+   - Utilization rates
+   - Age and depreciation analysis
+   - Location distribution
+
+2. **Maintenance Reports**
+   - Maintenance completion rates
+   - Preventive vs. reactive maintenance ratio
+   - Cost analysis by asset/department
+   - Downtime analysis
+
+3. **Performance Metrics**
+   - Mean Time Between Failures (MTBF)
+   - Mean Time To Repair (MTTR)
+   - Asset availability percentage
+   - Maintenance cost per asset
+
+## Technical Requirements
+
+### Platform Requirements
+
+1. **Web Application**
+   - Responsive design (desktop, tablet, mobile)
+   - Modern browsers support (Chrome, Firefox, Safari, Edge)
+   - Progressive Web App (PWA) capabilities
+
+2. **Mobile Application**
+   - Native or hybrid mobile app
+   - iOS and Android support
+   - Offline capability for core functions
+   - QR code scanning integration
+
+### System Requirements
+
+1. **Database**
+   - Relational database (PostgreSQL/MySQL)
+   - Data backup and recovery mechanisms
+   - Support for minimum 100,000 asset records
+
+2. **Security**
+   - HTTPS/SSL encryption
+   - Multi-factor authentication support
+   - Role-based access control (RBAC)
+   - Session management and timeout
+   - Audit logging of all critical operations
+
+3. **Integration**
+   - REST API for third-party integrations
+   - Support for barcode/QR code scanners
+   - Export capabilities (Excel, PDF, CSV)
+   - Email notification system
+
+4. **Performance**
+   - Page load time < 3 seconds
+   - Support for 100+ concurrent users
+   - 99.5% uptime SLA
+   - Data backup every 24 hours
+
+## User Interface Requirements
+
+### Dashboard
+- Key metrics and KPIs at a glance
+- Pending work orders and alerts
+- Recent activity feed
+- Quick action buttons
+
+### Navigation
+- Intuitive menu structure
+- Breadcrumb navigation
+- Global search functionality
+- Quick filters and shortcuts
+
+### Accessibility
+- WCAG 2.1 Level AA compliance
+- Keyboard navigation support
+- Screen reader compatibility
+- Color contrast requirements
+
+## Workflow Examples
 
 ### Workflow 1: Asset Registration
+1. Admin or shop incharge accesses asset registration form
+2. Enters asset details and uploads photos/documents
+3. System generates unique asset ID and QR code
+4. QR code is printed and affixed to asset
+5. Asset appears in system inventory
 
-**Trigger:** New asset acquisition
+### Workflow 2: Preventive Maintenance
+1. Shop incharge creates maintenance schedule for asset
+2. System automatically generates work order when due
+3. Shop incharge assigns work order to operator
+4. Operator receives notification
+5. Operator completes maintenance and updates status
+6. Shop incharge reviews and closes work order
+7. Maintenance record is added to asset history
 
-**Process Flow:**
-1. **Asset Information Entry**
-   - System Administrator/Operations Manager enters basic asset details
-   - Required fields: Asset name, category, serial number, purchase date, cost
-   - Optional fields: Warranty info, supplier details, specifications
+### Workflow 3: Breakdown Reporting
+1. Operator identifies equipment malfunction
+2. Operator creates urgent work order via mobile app
+3. Shop incharge receives immediate notification
+4. Shop incharge reviews and assigns priority
+5. Qualified operator is assigned to repair
+6. Operator updates progress and completion status
+7. Asset status is restored to active
 
-2. **Asset Verification**
-   - Physical verification of asset details
-   - QR code generation and attachment
-   - Location assignment and documentation
+## Success Criteria
 
-3. **System Integration**
-   - Asset added to searchable catalog
-   - Maintenance schedule initialization
-   - Integration with inventory systems
+### User Adoption
+1. **Training Completion:** 90% of users trained within first month
+2. **Active Usage:** 80% of operators logging in daily within 3 months
+3. **Data Quality:** 95% of assets registered with complete information
 
-**Success Criteria:**
-- Asset appears in system catalog within 15 minutes
-- QR code successfully links to asset record
-- All mandatory fields completed and validated
-
-### Workflow 2: Preventive Maintenance Scheduling
-
-**Trigger:** Asset registration or schedule review cycle
-
-**Process Flow:**
-1. **Schedule Definition**
-   - Maintenance Supervisor defines maintenance intervals
-   - Task templates created for routine procedures
-   - Resource requirements specified
-
-2. **Automatic Scheduling**
-   - System generates work orders based on defined intervals
-   - Technician assignments based on skills and availability
-   - Parts and materials automatically reserved
-
-3. **Notification & Execution**
-   - Automated notifications sent to assigned technicians
-   - Mobile-friendly work order access
-   - Real-time progress tracking
-
-**Success Criteria:**
-- 95% of preventive maintenance completed on schedule
-- Zero critical maintenance items missed
-- Average work order completion time under target
-
-### Workflow 3: Issue Reporting & Resolution
-
-**Trigger:** Asset malfunction or performance degradation
-
-**Process Flow:**
-1. **Issue Identification**
-   - Production Operator identifies and reports issue
-   - Mobile app allows photo/video documentation
-   - Severity level assessment and categorization
-
-2. **Assignment & Prioritization**
-   - Maintenance Supervisor reviews and prioritizes
-   - Technician assigned based on skills and urgency
-   - Parts ordering initiated if required
-
-3. **Resolution & Documentation**
-   - Maintenance Technician executes repair
-   - Solution documented for future reference
-   - Asset status updated upon completion
-
-**Success Criteria:**
-- Critical issues resolved within 2 hours
-- Non-critical issues resolved within 24 hours
-- 100% issue resolution documentation
-
-### Workflow 4: Asset Transfer & Location Management
-
-**Trigger:** Asset relocation or reassignment
-
-**Process Flow:**
-1. **Transfer Request**
-   - Operations Manager initiates transfer request
-   - Destination location and purpose specified
-   - Transfer approval workflow if required
-
-2. **Physical Transfer**
-   - QR code scan at origin location
-   - Physical movement of asset
-   - QR code scan at destination
-
-3. **System Update**
-   - Location history automatically updated
-   - Maintenance schedules adjusted if necessary
-   - Stakeholder notifications sent
-
-**Success Criteria:**
-- 100% location accuracy maintained
-- Transfer completion within specified timeframe
-- Zero assets unaccounted for during transfer
-
-## Acceptance Criteria
-
-### Technical Requirements
-
-1. **System Performance**
-   - Page load times under 3 seconds
-   - 99.5% system uptime
-   - Support for 100+ concurrent users
-   - Mobile responsiveness across devices
-
-2. **Data Management**
-   - Real-time data synchronization
-   - Automated daily backups
-   - Data retention for minimum 7 years
-   - GDPR compliance for personal data
-
-3. **Security**
-   - Role-based access control implementation
-   - SSL encryption for all data transmission
-   - Regular security updates and patches
-   - Audit trail for all system activities
-
-4. **Integration**
-   - API endpoints for external system integration
-   - Support for barcode/QR code scanning
-   - Email notification system
-   - Reporting data export capabilities
-
-### Functional Requirements
-
-1. **Asset Management**
-   - ✅ Create, read, update, delete asset records
-   - ✅ Bulk asset import from spreadsheets
-   - ✅ Asset hierarchy and categorization
-   - ✅ Custom fields and attributes
-
-2. **Maintenance Management**
-   - ✅ Preventive maintenance scheduling
-   - ✅ Work order lifecycle management
-   - ✅ Parts inventory integration
-   - ✅ Maintenance cost tracking
-
-3. **Reporting & Analytics**
-   - ✅ Standard report templates
-   - ✅ Custom report builder
-   - ✅ Dashboard with key metrics
-   - ✅ Data visualization tools
-
-4. **User Experience**
-   - ✅ Intuitive navigation and interface
-   - ✅ Mobile application for field operations
-   - ✅ Offline capability for critical functions
-   - ✅ Multi-language support
-
-### Business Requirements
-
-1. **Operational Efficiency**
-   - 30% reduction in asset downtime
-   - 25% improvement in maintenance response time
-   - 20% reduction in maintenance costs
-   - 95% preventive maintenance compliance
-
-2. **Data Quality**
-   - 99% asset location accuracy
-   - 100% maintenance history completeness
-   - Zero data loss incidents
-   - Real-time inventory accuracy
-
-3. **User Adoption**
-   - 90% user adoption within 3 months
-   - Less than 2 hours average training time
-   - User satisfaction score above 4.0/5.0
-   - Support ticket resolution under 24 hours
-
-## Project Success Metrics
-
-### Key Performance Indicators (KPIs)
-
-1. **Asset Utilization Rate:** Target 85%+
-2. **Mean Time to Repair (MTTR):** Reduce by 40%
+### Operational Efficiency
+1. **Maintenance Tracking:** 100% of maintenance activities logged in system
+2. **Response Time:** Average work order response time < 4 hours
 3. **Mean Time Between Failures (MTBF):** Increase by 25%
 4. **Maintenance Cost per Asset:** Reduce by 20%
 5. **Preventive vs. Reactive Maintenance Ratio:** 70:30
 
 ### Implementation Milestones
-
 - **Phase 1 (Months 1-2):** Core asset management functionality
 - **Phase 2 (Months 3-4):** Maintenance scheduling and work orders
 - **Phase 3 (Months 5-6):** Mobile application and advanced reporting
@@ -333,11 +291,10 @@ The Factory Asset Manager is a comprehensive digital solution designed to stream
 ---
 
 **Document Approval:**
-- [ ] Operations Manager
+- [ ] Shop Incharge
 - [ ] IT Director
-- [ ] Maintenance Supervisor
 - [ ] Project Sponsor
 
-**Last Updated:** October 30, 2025
-**Document Owner:** Project Management Office
+**Last Updated:** October 30, 2025  
+**Document Owner:** Project Management Office  
 **Review Cycle:** Monthly during implementation phase
